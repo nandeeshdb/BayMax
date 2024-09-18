@@ -1,4 +1,4 @@
-import { screenWidth } from "./Scaling";
+import { screenWidth } from "./scaling";
 
 export enum Colors {
     primary = '#AF1125',
