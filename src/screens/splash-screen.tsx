@@ -1,5 +1,5 @@
 import {SafeAreaView, StyleSheet, View} from 'react-native';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {Colors, Fonts, lightColors} from '../utils/Constants';
 import Animated, {
   useAnimatedStyle,
@@ -40,16 +40,16 @@ const SplashScreen = () => {
     };
   });
 
-  const launchAnimation = async ()=>{
-    messageContainerAnimation.value = screenHeight * 0.02,
-    setTimeout(()=>{
-      bayMaxAnimataion.value = -screenHeight * 0.002
-    },600)
-  }
+  const launchAnimation = async () => {
+    (messageContainerAnimation.value = screenHeight * 0.02),
+      setTimeout(() => {
+        bayMaxAnimataion.value = -screenHeight * 0.002;
+      }, 600);
+  };
 
-  useEffect(()=>{
-    launchAnimation()
-  },[])
+  useEffect(() => {
+    launchAnimation();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View style={[styles.imageContainer, animateImageStyle]}>
