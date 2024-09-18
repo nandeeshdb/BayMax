@@ -1,6 +1,5 @@
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React, {useEffect} from 'react';
-import {Colors, Fonts, lightColors} from '../utils/Constants';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -11,6 +10,10 @@ import {screenHeight, screenWidth} from '../utils/scaling';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomText from '../components/global/custom-text';
 import LottieView from 'lottie-react-native';
+import {Colors, Fonts, lightColors} from '../utils/constants';
+import {initializeTtsListener} from '../utils/tts-listener';
+import Tts from 'react-native-tts';
+import {resetAndNavigate} from '../utils/navigation';
 
 const bottomColors = [...lightColors].reverse();
 
@@ -44,12 +47,19 @@ const SplashScreen = () => {
     (messageContainerAnimation.value = screenHeight * 0.02),
       setTimeout(() => {
         bayMaxAnimataion.value = -screenHeight * 0.002;
-      }, 600);
+
+        Tts.speak('Hello!, I am Baymax your personal health companion');
+      }, 1000);
+
+    setTimeout(() => {
+      resetAndNavigate('BaymaxScreen');
+    }, 6000);
   };
 
   useEffect(() => {
     launchAnimation();
-  }, []);
+    initializeTtsListener();
+  });
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View style={[styles.imageContainer, animateImageStyle]}>
