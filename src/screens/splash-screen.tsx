@@ -53,12 +53,12 @@ const SplashScreen = () => {
 
     setTimeout(() => {
       resetAndNavigate('BaymaxScreen');
-    }, 6000);
+    }, 4500);
   };
 
   useEffect(() => {
     launchAnimation();
-    initializeTtsListener();
+    initializeTtsListener(); 
   });
   return (
     <SafeAreaView style={styles.container}>
